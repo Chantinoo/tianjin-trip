@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Romantic warm palette for couple travel */
+    --background: 30 50% 98%;
+    --foreground: 20 30% 20%;
+    --card: 30 40% 97%;
+    --card-foreground: 20 30% 20%;
+    --popover: 30 40% 97%;
+    --popover-foreground: 20 30% 20%;
+    --primary: 350 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 60% 92%;
+    --secondary-foreground: 20 30% 30%;
+    --muted: 30 30% 90%;
+    --muted-foreground: 20 20% 50%;
+    --accent: 15 80% 70%;
+    --accent-foreground: 20 30% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 30% 85%;
+    --input: 30 30% 85%;
+    --ring: 350 70% 60%;
+    --radius: 1rem;
+
+    /* Custom colors for travel theme */
+    --love: 350 80% 65%;
+    --love-light: 350 70% 92%;
+    --coral: 15 80% 65%;
+    --cream: 40 60% 95%;
+    --warm-gray: 30 10% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Noto Serif SC', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-love {
+    @apply bg-gradient-to-r from-love via-coral to-love bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-romantic {
+    background: linear-gradient(135deg, hsl(var(--love-light)) 0%, hsl(var(--cream)) 50%, hsl(var(--secondary)) 100%);
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, hsl(var(--love-light)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--cream)) 100%);
+  }
+  
+  .shadow-romantic {
+    box-shadow: 0 10px 40px -10px hsl(var(--love) / 0.2),
+                0 4px 20px -5px hsl(var(--love) / 0.1);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 4px 20px -5px hsl(var(--foreground) / 0.1),
+                0 2px 10px -3px hsl(var(--love) / 0.08);
+  }
+
+  .shadow-photo {
+    box-shadow: 0 20px 50px -15px hsl(var(--foreground) / 0.25),
+                0 8px 20px -10px hsl(var(--love) / 0.15);
+  }
+}
+
+/* Photo card styles */
+.photo-card {
+  @apply relative overflow-hidden rounded-2xl transition-all duration-500 ease-out;
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.photo-card img {
+  @apply transition-transform duration-700 ease-out;
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Polaroid effect */
+.polaroid {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+  padding: 12px;
+  padding-bottom: 50px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.2),
+              0 4px 10px -5px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.polaroid:hover {
+  transform: rotate(-2deg) translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25),
+              0 8px 20px -5px rgba(0,0,0,0.15);
+}
+
+/* Timeline styles */
+.timeline-dot {
+  @apply w-4 h-4 rounded-full bg-love border-4 border-love-light;
+  box-shadow: 0 0 0 4px hsl(var(--background)), 0 0 20px hsl(var(--love) / 0.3);
+}
+
+/* Scroll animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Heart decoration */
+.heart-float {
+  position: absolute;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--love) / 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--love) / 0.6);
+}
