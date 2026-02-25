@@ -53,13 +53,13 @@ const foodGallery = [
   },
   {
     id: 2,
-    name: '酱爆鸡丁',
+    name: '老爆三样',
     description: '外酥里嫩，超级下饭',
     image: '/images/tianjin/food-2.jpg',
   },
   {
     id: 3,
-    name: '熟梨糕',
+    name: '老味刨冰',
     description: '天津特色，甜蜜蜜',
     image: '/images/tianjin/food-3.jpg',
   },
@@ -71,7 +71,7 @@ const foodGallery = [
   },
   {
     id: 5,
-    name: '蟹黄蒸蛋',
+    name: '锅塌里脊',
     description: '滑嫩鲜美，入口即化',
     image: '/images/tianjin/food-5.jpg',
   },
